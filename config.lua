@@ -36,7 +36,7 @@ Config.Animations = {
 		name  = 'work',
 		label = 'Work',
 		items = {
-			{label = "Suspect : busted", type = "anim", data = {lib = "random@arrests@busted", anim = "idle_c"}},
+			{label = "Suspect : busted", type = "anim", data = {lib = "random@arrests@busted", anim = "idle_c", repeat_anim=true}},
 			{label = "Fishing", type = "scenario", data = {anim = "world_human_stand_fishing"}},
 			{label = "Police : investigate", type = "anim", data = {lib = "amb@code_human_police_investigate@idle_b", anim = "idle_f"}},
 			{label = "Police : radio chatter", type = "anim", data = {lib = "random@arrests", anim = "generic_radio_chatter", upper=true, control=true}},
@@ -73,7 +73,7 @@ Config.Animations = {
 			{label = "Facepalm", type = "anim", data = {lib = "anim@mp_player_intcelebrationmale@face_palm", anim = "face_palm", upper=true, control=true}},
 			{label = "Calme-toi ", type = "anim", data = {lib = "gestures@m@standing@casual", anim = "gesture_easy_now", upper=true, control=true}},
 			{label = "Qu'est ce que j'ai fait ?", type = "anim", data = {lib = "oddjobs@assassinate@multi@", anim = "react_big_variations_a"}},
-			{label = "Avoir peur", type = "anim", data = {lib = "amb@code_human_cower_stand@male@react_cowering", anim = "base_right"}},
+			{label = "Avoir peur", type = "anim", data = {lib = "amb@code_human_cower_stand@male@react_cowering", anim = "base_right", repeat_anim=true}},
 			{label = "Fight ?", type = "anim", data = {lib = "anim@deathmatch_intros@unarmed", anim = "intro_male_unarmed_e"}},
 			{label = "C'est pas Possible !", type = "anim", data = {lib = "gestures@m@standing@casual", anim = "gesture_damn", upper=true, control=true}},
 			{label = "Enlacer", type = "anim", data = {lib = "mp_ped_interaction", anim = "kisses_guy_a"}},
