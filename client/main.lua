@@ -35,9 +35,10 @@ function startAttitude(lib, anim)
 	end)
 end
 
-function startAnim(lib, anim)
+function startAnim(lib, anim, flag)
+	flag = flag or 0
 	ESX.Streaming.RequestAnimDict(lib, function()
-		TaskPlayAnim(PlayerPedId(), lib, anim, 8.0, -8.0, -1, 0, 0, false, false, false)
+		TaskPlayAnim(PlayerPedId(), lib, anim, 8.0, -8.0, -1, flag, 0, false, false, false)
 	end)
 end
 
@@ -94,13 +95,33 @@ function OpenAnimationsSubMenu(menu)
 		local type = data.current.type
 		local lib  = data.current.value.lib
 		local anim = data.current.value.anim
+		local flag = 0
+
+		if data.current.value.in_vehicle == true and not IsPedSittingInAnyVehicle(PlayerPedId()) then
+			return
+		end
+
+		if data.current.value.repeat_anim == true then
+			flag = flag + 1
+		end
+		if data.current.value.stop_last_frame == true then
+			flag = flag + 2
+		end
+
+		if data.current.value.upper == true then
+			flag = flag + 16
+		end
+
+		if data.current.value.control == true then
+			flag = flag + 32
+		end
 
 		if type == 'scenario' then
 			startScenario(anim)
 		elseif type == 'attitude' then
 			startAttitude(lib, anim)
 		elseif type == 'anim' then
-			startAnim(lib, anim)
+			startAnim(lib, anim, flag)
 		end
 	end, function(data, menu)
 		menu.close()
